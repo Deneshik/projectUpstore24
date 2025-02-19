@@ -12,10 +12,11 @@ class LoginPage(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
+        self.driver.get(self.url)
 
     # Locators
 
-    button_personal_account = "//nav[1]//li/a[contains(text(), 'Личный кабинет')]"
+    button_personal_account = "//ul[contains(@class, 'js-nav-items')]//a[contains(@href, 'client_account/login')]"
     email = "//input[@id='email']"
     password = "//input[@id='password']"
     login_button = "//button[text()='Войти']"
@@ -24,7 +25,7 @@ class LoginPage(Base):
     # Getters
 
     def get_button_personal_account(self):
-        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.button_personal_account)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_personal_account)))
 
     def get_email(self):
         return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.email)))

@@ -33,16 +33,16 @@ def test_buy_product(driver):
     lp = LoginPage(driver)
     lp.authorization()
 
-    # mp = MainPage(driver)
-    # mp.select_catalogue()
-    # mp.select_smartphones()
-    #
-    # sp = SmartphonesPage(driver)
-    # sp.buy_smartphone()
-    #
-    # op = OrderPage(driver)
-    # op.place_your_order()
-    #
-    # print("Конец теста покупки смартфона")
+    mp = MainPage(driver)
+    mp.select_catalogue()
+    mp.select_smartphones()
+
+    sp = SmartphonesPage(driver)
+    sp.buy_smartphone()
+
+    op = OrderPage(driver)
+    op.place_your_order()
+
+    print("Конец теста покупки смартфона")
 
 

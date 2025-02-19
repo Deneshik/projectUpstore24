@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da06cc01-85a6-49f4-8454-bbd816ed8228" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/order_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/smartphones_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/base_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/base_class.py" afterDir="false" />
+    <list default="true" id="da06cc01-85a6-49f4-8454-bbd816ed8228" name="Changes" comment="исправление когда, создание login_page">
       <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/order_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/order_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_buy_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_buy_product.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738667829038</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="исправление когда, создание login_page">
+      <option name="closed" value="true" />
+      <created>1739976778836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739976778836</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,7 +111,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="создание каркаса проекта Upstore24" />
     <MESSAGE value="создание base_class, main_page, создание теста test_buy_product" />
-    <option name="LAST_COMMIT_MESSAGE" value="создание base_class, main_page, создание теста test_buy_product" />
+    <MESSAGE value="исправление когда, создание login_page" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправление когда, создание login_page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
