@@ -20,29 +20,29 @@
 #
 # 5. Написать подробную аннотацию к проекту
 
-import time
-
-import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-# from pages.cart_page import CartPage
-# from pages.client_information_page import ClientInformationPage
-# from pages.finish_page import FinishPage
-# from pages.login_page import LoginPage
+from pages.login_page import LoginPage
 from pages.main_page import MainPage
-# from pages.payment_page import PaymentPage
+from pages.order_page import OrderPage
+from pages.smartphones_page import SmartphonesPage
 
 
 def test_buy_product(driver):
 
     print("Старт теста - покупка смартфона")
 
-    mp = MainPage(driver)
-    mp.select_catalogue()
+    lp = LoginPage(driver)
+    lp.authorization()
 
-    print("Конец теста покупки смартфона")
+    # mp = MainPage(driver)
+    # mp.select_catalogue()
+    # mp.select_smartphones()
+    #
+    # sp = SmartphonesPage(driver)
+    # sp.buy_smartphone()
+    #
+    # op = OrderPage(driver)
+    # op.place_your_order()
+    #
+    # print("Конец теста покупки смартфона")
 
 

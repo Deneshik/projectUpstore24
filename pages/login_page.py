@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -10,22 +12,25 @@ class LoginPage(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
 
     # Locators
 
-    user_name = "//input[@id='user-name']"
+    button_personal_account = "//nav[1]//li/a[contains(text(), 'Личный кабинет')]"
+    email = "//input[@id='email']"
     password = "//input[@id='password']"
-    login_button = "//input[@id='login-button']"
-    main_word = "//span[@class='title']"
+    login_button = "//button[text()='Войти']"
+    main_word = "//h1[@class='co-checkout-title co-title co-title--h1']"
 
     # Getters
 
-    def get_user_name(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name)))
+    def get_button_personal_account(self):
+        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.button_personal_account)))
+
+    def get_email(self):
+        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.email)))
 
     def get_password(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password)))
+        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.password)))
 
     def get_login_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_button)))
@@ -35,25 +40,27 @@ class LoginPage(Base):
 
     # Actions
 
-    def input_user_name(self, user_name):
-        self.get_user_name().send_keys(user_name)
-        print("Input user name")
+    def enter_personal_account(self):
+        self.get_button_personal_account().click()
+        print("Нажата кнопка входа в Личный кабинет")
+
+    def input_email(self, email):
+        self.get_email().send_keys(email)
+        print("Введен email пользователя")
 
     def input_password(self, password):
         self.get_password().send_keys(password)
-        print("Input password")
+        print("Введен пароль")
 
     def click_login_button(self):
         self.get_login_button().click()
-        print("Click login button")
+        print("Нажата кнопка Войти")
 
     # Methods
     def authorization(self):
         """ Авторизация в системе"""
-        self.driver.get(self.url)
-        self.driver.maximize_window()
-        self.get_current_url()
-        self.input_user_name("standard_user")
-        self.input_password("secret_sauce")
+        self.enter_personal_account()
+        self.input_email("1sd908rjc613@mail.ru")
+        self.input_password("12345678")
         self.click_login_button()
-        self.assert_word(self.get_main_word(), "Products")
+        self.assert_word(self.get_main_word(), "История заказов")
