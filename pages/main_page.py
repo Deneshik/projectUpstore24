@@ -39,13 +39,11 @@ class MainPage(Base):
 
     def select_catalogue(self):
         """Переход в раздел Каталог"""
-        # self.get_current_url()
         self.click_button_catalogue()
         self.assert_url('https://upstore24.ru/collection/all')
 
     def select_smartphones(self):
         """Переход в раздел Смартфоны"""
-        # self.get_current_url()
         self.click_smartphones_collection()
         self.assert_url('https://upstore24.ru/collection/phones')
 

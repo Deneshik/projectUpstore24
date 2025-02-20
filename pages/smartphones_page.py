@@ -70,7 +70,7 @@ class SmartphonesPage(Base):
 
     # Method
     def buy_smartphone(self):
-        '''Покупка смартфона'''
+        """Покупка смартфона"""
         self.scroll_to_filters()
         self.apply_filters()
         time.sleep(3)

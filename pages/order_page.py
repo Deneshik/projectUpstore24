@@ -43,6 +43,7 @@ class OrderPage(Base):
     def place_your_order(self):
         self.place_order()
         self.scroll_to_apply_order()
+        time.sleep(3)
         self.create_order()
         time.sleep(3)
         self.get_screenshot()
