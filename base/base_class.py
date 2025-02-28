@@ -28,12 +28,6 @@ class Base():
             raise AssertionError("Ошибка: элемент не найден или не содержит текст")
 
     """Method Screenshot"""
-    # def get_screenshot(self):
-        # """Создание скриншота"""
-        # now_date = datetime.datetime.now().strftime("%Y.%m.%d.%H.%M")
-        # name_screenshot = f"screenshot_{now_date}.png"
-        # self.driver.save_screenshot(f"screen/{name_screenshot}")
-        # print(f"Скриншот сохранен: {name_screenshot}")
 
     def get_screenshot(self):
         """Создание скриншота"""

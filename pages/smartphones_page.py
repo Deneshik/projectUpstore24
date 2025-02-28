@@ -1,16 +1,15 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class SmartphonesPage(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
 
     # Locators
 
@@ -70,14 +69,19 @@ class SmartphonesPage(Base):
 
     # Method
     def buy_smartphone(self):
-        """Покупка смартфона"""
-        self.scroll_to_filters()
-        self.apply_filters()
-        time.sleep(3)
-        selected_smartphone_name = self.select_smartphone()
-        self.add_to_cart()
-        self.open_cart()
-        self.assert_url("https://upstore24.ru/cart_items")
-        print("Переход в корзину")
-        self.assert_word(self.get_cart_product_name(), selected_smartphone_name)
-        print("Товар успешно добавлен в корзину")
+        """Покупка смартфона: применение фильтров, выбор смартфона, добавление выбранного смартфона в корзину,
+        открытие корзины, проверка, что товар добавлен в корзину"""
+
+        with allure.step("Buy smartphone"):
+            Logger.add_start_step(method="Buy smartphone")
+            self.scroll_to_filters()
+            self.apply_filters()
+            time.sleep(3)
+            selected_smartphone_name = self.select_smartphone()
+            self.add_to_cart()
+            self.open_cart()
+            self.assert_url("https://upstore24.ru/cart_items")
+            print("Переход в корзину")
+            self.assert_word(self.get_cart_product_name(), selected_smartphone_name)
+            print("Товар успешно добавлен в корзину")
+            Logger.add_end_step(url=self.driver.current_url, method="Buy smartphone")

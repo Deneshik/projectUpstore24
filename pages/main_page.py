@@ -1,16 +1,13 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class MainPage(Base):
-    url = 'https://upstore24.ru/'
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver.get(self.url)  # Открываем страницу при создании объекта
 
     # Locators
 
@@ -39,11 +36,17 @@ class MainPage(Base):
 
     def select_catalogue(self):
         """Переход в раздел Каталог"""
+
+        Logger.add_start_step(method="Select catalogue")
         self.click_button_catalogue()
         self.assert_url('https://upstore24.ru/collection/all')
+        Logger.add_end_step(url=self.driver.current_url, method="Select catalogue")
 
     def select_smartphones(self):
         """Переход в раздел Смартфоны"""
-        self.click_smartphones_collection()
-        self.assert_url('https://upstore24.ru/collection/phones')
+        with allure.step("Select smartphones"):
+            Logger.add_start_step(method="Select smartphones")
+            self.click_smartphones_collection()
+            self.assert_url('https://upstore24.ru/collection/phones')
+            Logger.add_end_step(url=self.driver.current_url, method="Select smartphones")
 

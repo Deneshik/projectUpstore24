@@ -1,16 +1,15 @@
 import time
 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class OrderPage(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
 
     # Locators
 
@@ -41,9 +40,14 @@ class OrderPage(Base):
 
     # Method
     def place_your_order(self):
-        self.place_order()
-        self.scroll_to_apply_order()
-        time.sleep(3)
-        self.create_order()
-        time.sleep(3)
-        self.get_screenshot()
+        """Подтверждение заказа, создание заказа"""
+
+        with allure.step("Place your order"):
+            Logger.add_start_step(method="Place your order")
+            self.place_order()
+            self.scroll_to_apply_order()
+            time.sleep(3)
+            self.create_order()
+            time.sleep(3)
+            self.get_screenshot()
+            Logger.add_end_step(url=self.driver.current_url, method="Place your order")
